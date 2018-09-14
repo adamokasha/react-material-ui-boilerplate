@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 // NODE_ENV will be 'production' on heroku, 'test' in testing env, and if neither it will be 'development'
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -39,21 +38,6 @@ module.exports = (env, argv) => {
               options: { minimize: true }
             }
           ]
-        },
-        {
-          test: /\.scss$/,
-          use: [
-            env !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
-            {
-              loader: "css-loader", options: {
-                sourceMap: true
-              }
-            }, {
-              loader: "sass-loader", options: {
-                sourceMap: true
-            }
-          }
-          ]
         }
       ]
     },
@@ -62,10 +46,6 @@ module.exports = (env, argv) => {
         template: "./src/index.html",
         filename: "../index.html",
         inject: false
-      }),
-      new MiniCssExtractPlugin({
-        filename: "[name].css",
-        chunkFilename: "[id].css"
       }),
       new webpack.DefinePlugin({
         // Define global constants here..

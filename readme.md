@@ -1,11 +1,11 @@
-## React boilerplate with Webpack 4.
+## React and Material UI boilerplate with Webpack 4.
 
 ### Features
+* Material UI
+  * Premade component set for rapid prototyping.
+* Private and public routing setup.
 * Webpack 4 
-  * Babel
-  * Css/Sass loaders
-  * Testing and development environment setup
-* Jest and Enzyme for testing
+* Jest and Enzyme for testing.
 
 ### Usage in Development
 1. Clone repo and install dependencies.
