@@ -1,13 +1,13 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
-import NavMain from '../components/NavMain';
+import NavMain from "../components/NavMain";
 
 export const PublicRoute = ({ auth, component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={props => 
+    render={props =>
       auth ? (
         <Redirect to="/" />
       ) : (

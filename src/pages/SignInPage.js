@@ -1,26 +1,29 @@
-import React from 'react';
-import {connect} from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
-import SignInForm from '../components/SignInForm'
-import {login} from '../actions/auth';
+import SignInForm from "../components/SignInForm";
+import { login } from "../actions/auth";
 
 export class LoginPage extends React.Component {
   constructor(props) {
     super(props);
   }
-  onSubmit = (e) => {
+  onSubmit = e => {
     e.preventDefault();
     this.props.login();
-    this.props.history.push('/dashboard')
-  }
+    this.props.history.push("/dashboard");
+  };
 
-  render(){
+  render() {
     return (
       <React.Fragment>
         <SignInForm onSubmit={this.onSubmit} />
       </React.Fragment>
-    ) 
+    );
   }
 }
 
-export default connect(null, {login})(LoginPage);
+export default connect(
+  null,
+  { login }
+)(LoginPage);

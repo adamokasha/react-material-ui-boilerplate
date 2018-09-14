@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import AppRouter from './routers/AppRouter';
+import AppRouter from "./routers/AppRouter";
 
 export default () => {
   return (
     <div>
-      <AppRouter/>
+      <AppRouter />
     </div>
   );
 };

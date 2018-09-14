@@ -1,24 +1,24 @@
-const path = require('path');
-const webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 // NODE_ENV will be 'production' on heroku, 'test' in testing env, and if neither it will be 'development'
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+process.env.NODE_ENV = process.env.NODE_ENV || "development";
 
 // Load test or development env variables
-if (process.env.NODE_ENV === 'test') {
-  require('dotenv').config({ path: '.env.test' });
-} else if (process.env.NODE_ENV === 'development') {
-  require('dotenv').config({ path: '.env.development' });
+if (process.env.NODE_ENV === "test") {
+  require("dotenv").config({ path: ".env.test" });
+} else if (process.env.NODE_ENV === "development") {
+  require("dotenv").config({ path: ".env.development" });
 }
 
 module.exports = (env, argv) => {
   console.log(env);
 
   return {
-    entry: ['babel-polyfill', './src/index.js'],
+    entry: ["babel-polyfill", "./src/index.js"],
     output: {
-      path: path.join(__dirname, 'public', 'dist'),
+      path: path.join(__dirname, "public", "dist"),
       filename: "bundle.js"
     },
     module: {
@@ -51,12 +51,12 @@ module.exports = (env, argv) => {
         // Define global constants here..
       })
     ],
-    devtool: env === "production" ? 'source-map' : 'inline-source-map',
+    devtool: env === "production" ? "source-map" : "inline-source-map",
     devServer: {
-      contentBase: path.join(__dirname, 'public'),
+      contentBase: path.join(__dirname, "public"),
       // for all 404 pages send back the html file
       historyApiFallback: true,
-      publicPath: '/dist/'
+      publicPath: "/dist/"
     }
   };
-}
+};
