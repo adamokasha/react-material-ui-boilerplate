@@ -1,6 +1,5 @@
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import HowToReg from '@material-ui/icons/HowToReg';
@@ -57,7 +56,6 @@ function PaperSheet(props) {
 
   return (
     <React.Fragment>
-      <CssBaseline>
         <main className={classes.layout}>
           <Paper className={classes.paper} elevation={1}>
             <Avatar className={classes.avatar}>
@@ -99,7 +97,6 @@ function PaperSheet(props) {
             </form>
           </Paper>
         </main>
-      </CssBaseline>
     </React.Fragment>
   );
 }

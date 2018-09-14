@@ -5,11 +5,9 @@ import SignUpForm from '../components/SignUpForm';
 
 export const SignUpPage = () => {
   return (
-    <div>
-      <NavMain>
+    <React.Fragment>
         <SignUpForm />
-      </NavMain>
-    </div>
+    </React.Fragment>
   )
 }
 

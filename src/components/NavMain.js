@@ -1,11 +1,14 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
+import compose from 'recompose/compose';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button'
+import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
@@ -15,6 +18,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { mailFolderListItems, otherMailFolderListItems } from './NavSide';
+
+import { logout } from '../actions/auth';
 
 const drawerWidth = 240;
 
@@ -57,9 +62,9 @@ const styles = theme => ({
     marginRight: 20
   },
   logoText: {
-    textDecoration: 'none' 
+    textDecoration: 'none'
   },
-  signUpButton: {
+  rightMostButton: {
     marginRight: 12
   },
   hide: {
@@ -108,10 +113,57 @@ const styles = theme => ({
   }
 });
 
-class PersistentDrawer extends React.Component {
+class NavMain extends React.Component {
   state = {
     open: false,
     anchor: 'left'
+  };
+
+  renderButtons = () => {
+    const {auth, classes} = this.props;
+
+    if (auth) {
+      return (
+        <Button
+          onClick={this.handleLogout}
+          color="inherit"
+          to="/"
+          component={Link}
+          className={classNames(
+            classes.pushRight,
+            classes.rightMostButton
+          )}
+        >
+          Log Out
+        </Button>
+      );
+    } else {
+      return (
+        <React.Fragment>
+          <Button
+            color="inherit"
+            to="/signin"
+            component={Link}
+            className={classes.pushRight}
+          >
+            Login
+          </Button>
+          <Button
+            to="/signin"
+            component={Link}
+            color="inherit"
+            className={classes.rightMostButton}
+          >
+            Sign Up
+          </Button>
+        </React.Fragment>
+      );
+    }
+  };
+
+  handleLogout = () => {
+    this.props.logout();
+    this.props.history.push('/');
   };
 
   handleDrawerOpen = () => {
@@ -184,18 +236,17 @@ class PersistentDrawer extends React.Component {
               >
                 <MenuIcon />
               </IconButton>
-              <Typography 
+              <Typography
                 component={Link}
                 className={classes.logoText}
                 to="/"
-                variant="title" 
-                color="inherit" 
+                variant="title"
+                color="inherit"
                 noWrap
-                >
-                RBP v4
+              >
+                RBP
               </Typography>
-              <Button color="inherit" to="/signin" component={Link} className={classes.pushRight}>Login</Button>
-              <Button color="inherit" to="/signup" component={Link} className={classes.signUpButton}>Sign Up</Button>
+              {this.renderButtons()}
             </Toolbar>
           </AppBar>
           {before}
@@ -219,9 +270,20 @@ class PersistentDrawer extends React.Component {
   }
 }
 
-PersistentDrawer.propTypes = {
+NavMain.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired
 };
 
-export default withStyles(styles, { withTheme: true })(PersistentDrawer);
+const mapStateToProps = ({ auth }) => ({
+  auth
+});
+
+export default compose(
+  withStyles(styles, { withTheme: true }),
+  withRouter,
+  connect(
+    mapStateToProps,
+    { logout }
+  )
+)(NavMain);

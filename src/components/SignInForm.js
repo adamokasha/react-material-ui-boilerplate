@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -48,7 +47,6 @@ function SignIn(props) {
 
   return (
     <React.Fragment>
-      <CssBaseline />
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Avatar className={classes.avatar}>
@@ -74,6 +72,7 @@ function SignIn(props) {
               fullWidth
               variant="raised"
               color="primary"
+              onClick={props.onSubmit}
               className={classes.submit}
             >
               Sign in

@@ -6,13 +6,13 @@ import CardGrid from '../components/CardGrid';
 
 export const LandingPage = () => {
   return (
-    <div>
-    <NavMain>
-      <HeroUnit />
-      <CardGrid />
-    </NavMain>
-    </div>
-  )
-}
+    <React.Fragment>
+      <NavMain>
+        <HeroUnit />
+        <CardGrid />
+      </NavMain>
+    </React.Fragment>
+  );
+};
 
 export default LandingPage;
