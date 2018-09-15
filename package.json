@@ -1,7 +1,6 @@
 {
   "name": "react-boilerplate-mui",
   "version": "1.0.0",
-  "sideEffects": false,
   "description": "React Boilerplate with Webpack 4 and Material UI component set",
   "main": "index.js",
   "scripts": {

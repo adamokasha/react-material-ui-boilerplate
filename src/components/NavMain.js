@@ -124,15 +124,25 @@ class NavMain extends React.Component {
 
     if (auth) {
       return (
+        <React.Fragment>
+        <Button
+          color="inherit"
+          to="/addpost"
+          component={Link}
+          className={classes.pushRight}
+        >
+          Add Post
+        </Button>
         <Button
           onClick={this.handleLogout}
           color="inherit"
           to="/"
           component={Link}
-          className={classNames(classes.pushRight, classes.rightMostButton)}
+          className={classes.rightMostButton}
         >
-          Log Out
+        Log Out
         </Button>
+        </React.Fragment>
       );
     } else {
       return (

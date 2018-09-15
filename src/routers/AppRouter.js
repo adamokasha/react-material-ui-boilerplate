@@ -8,6 +8,7 @@ import LandingPage from "../pages/LandingPage";
 import SignInPage from "../pages/SignInPage";
 import SignUpPage from "../pages/SignUpPage";
 import DashboardPage from "../pages/DashboardPage";
+import AddPostPage from '../pages/AddPostPage';
 
 const history = createBrowserHistory();
 
@@ -19,6 +20,7 @@ export default () => {
         <PublicRoute path="/signin" component={SignInPage} />
         <PublicRoute path="/signup" component={SignUpPage} />
         <PrivateRoute path="/dashboard" component={DashboardPage} />
+        <PrivateRoute path="/addpost" component={AddPostPage} />
       </Switch>
     </Router>
   );
