@@ -14,6 +14,10 @@
 2. Run 'npm run dev' from cli to generate public/dist.
 3. Run 'npm run dev-server' for development with live-reloading.
 
+
+#### Known Issues
+  * Tree shaking is not perfect with material-ui in this repo. A handful of mui components that are never imported get bundled.
+
 ### NPM Scripts
 #### **npm run build**
 Runs webpack and builds bundle.js and index.html in public folder.
@@ -29,6 +33,3 @@ Starts the server.
 
 #### **heroku-postbuild**
 Runs build after deploying to heroku.
-
-#### Known Issues
-  * Tree shaking is not complete with material-ui in this repo. A handful of mui components that are never imported get bundled.

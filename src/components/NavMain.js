@@ -146,7 +146,7 @@ class NavMain extends React.Component {
             Login
           </Button>
           <Button
-            to="/signin"
+            to="/signup"
             component={Link}
             color="inherit"
             className={classes.rightMostButton}
