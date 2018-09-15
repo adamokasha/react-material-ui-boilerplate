@@ -9,7 +9,7 @@
 
 ### Usage in Development
 1. Clone repo and install dependencies.
-2. Run 'npm run build' from cli to generate public/dist.
+2. Run 'npm run dev' from cli to generate public/dist.
 3. Run 'npm run dev-server' for development with live-reloading.
 
 ### NPM Scripts
@@ -27,3 +27,6 @@ Starts the server.
 
 #### **heroku-postbuild**
 Runs build after deploying to heroku.
+
+#### Known Issues
+  * Tree shaking is not complete with material-ui in this repo. A handful of mui components that are never imported get bundled.

@@ -1,6 +1,7 @@
 {
   "name": "react-boilerplate-mui",
   "version": "1.0.0",
+  "sideEffects": false,
   "description": "React Boilerplate with Webpack 4 and Material UI component set",
   "main": "index.js",
   "scripts": {
@@ -21,6 +22,8 @@
     "enzyme-to-json": "^3.3.4",
     "jest": "^23.2.0",
     "react-test-renderer": "^16.4.1",
+    "uglifyjs-webpack-plugin": "^2.0.0",
+    "webpack-bundle-analyzer": "^3.0.2",
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
